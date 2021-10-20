@@ -5,12 +5,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import AppBar from "@material-ui/core/AppBar";
 import Typography from "@material-ui/core/Typography";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import ToggleOffIcon from "@material-ui/icons/ToggleOff";
-import ToggleOnIcon from "@material-ui/icons/ToggleOn";
-import Dialog from "@material-ui/core/Dialog";
-import MuiDialogTitle from "@material-ui/core/DialogTitle";
-import MuiDialogContent from "@material-ui/core/DialogContent";
-import MuiDialogActions from "@material-ui/core/DialogActions";
+import Badge from "@material-ui/core/Badge";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
@@ -67,8 +62,11 @@ function Header({ toggleDark }) {
             </Typography>
           </div>
           <div onClick={() => setOpen(!open)}>
-            <span className={styles.numberOfItems}>{numberOfItems}</span>
-            <ShoppingCartIcon style={{ fontSize: "40px", cursor: "pointer" }} />
+            <Badge badgeContent={numberOfItems} color="secondary">
+              <ShoppingCartIcon
+                style={{ fontSize: "40px", cursor: "pointer", color: "white" }}
+              />
+            </Badge>
           </div>
         </Toolbar>
       </AppBar>

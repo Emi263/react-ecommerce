@@ -113,16 +113,16 @@ function Cart({ open, setOpen }) {
                 <ListItemText secondary={`$${prod.price}`}></ListItemText>
                 <div style={{ padding: ".5rem", display: "flex", gap: "20px" }}>
                   <Button
-                    onClick={() => dispatch(increaseQuantity(prod.id))}
-                    variant="contained"
-                  >
-                    +
-                  </Button>
-                  <Button
                     onClick={() => dispatch(decreaseQuantity(prod.id))}
                     variant="contained"
                   >
                     -
+                  </Button>
+                  <Button
+                    onClick={() => dispatch(increaseQuantity(prod.id))}
+                    variant="contained"
+                  >
+                    +
                   </Button>
                 </div>{" "}
               </ListItem>

@@ -6,7 +6,9 @@ import ProductDescription from "./ProductDescription";
 function ProductDetails({ dark, setDark }) {
   const { name } = useParams();
 
-  const singleProduct = products.filter((prod) => prod.name == name);
+  const singleProduct = products.filter(
+    (prod) => prod.name.toLowerCase() == name
+  );
   console.log(singleProduct);
   const toggleDark = () => {
     setDark(!dark);

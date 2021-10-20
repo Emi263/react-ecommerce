@@ -5,8 +5,9 @@ import Test from "./Test";
 import Header from "./components/Header";
 import Cart from "./components/Cart";
 import { ThemeProvider, createTheme } from "@material-ui/core/styles";
-import { purple } from "@material-ui/core/colors";
-import Product from "./components/Product";
+import { green, purple, red, yellow } from "@material-ui/core/colors";
+import CssBaseline from "@material-ui/core/CssBaseline";
+
 import { store } from "./store/store";
 import ProductsList from "./components/ProductsList";
 import ProductDetails from "./components/ProductDetails";
@@ -23,17 +24,37 @@ function App() {
     setDark(!dark);
   };
 
-  const theme = createTheme({
+  const Lighttheme = createTheme({
     palette: {
-      type: dark ? "dark" : "light",
+      type: "light",
       primary: {
-        main: purple[500],
-        dark: "#000000",
+        main: green[500],
+        dark: green[200],
+        contrastText: "#fff",
       },
       secondary: {
-        main: purple[300],
+        main: purple[700],
         dark: purple[700],
-        contrastText: "#ffcc00",
+        contrastText: "#fff",
+      },
+    },
+  });
+
+  const darktheme = createTheme({
+    palette: {
+      type: "dark",
+      primary: {
+        main: red[500],
+        dark: red[200],
+      },
+      secondary: {
+        main: purple[700],
+        dark: purple[700],
+        contrastText: "#fff",
+      },
+      success: {
+        main: yellow[500],
+        contrastText: "#000",
       },
     },
   });
@@ -41,7 +62,8 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={dark ? darktheme : Lighttheme}>
+          <CssBaseline />
           <Paper>
             <Switch>
               <Route exact path="/">
